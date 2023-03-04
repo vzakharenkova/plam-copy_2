@@ -1,9 +1,9 @@
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
 import Footer from './Footer';
 import Header from './Header';
 
-const inter = Inter({ subsets: ['latin'], weight: ['500'] });
+const font = Montserrat({ subsets: ['latin'], weight: ['500'] });
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className={inter.className}>
+    <div className={font.className + ' app__wrapper'}>
       <Header />
       <main>{children}</main>
       <Footer />

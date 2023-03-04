@@ -1,14 +1,48 @@
 .header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 85px;
+  padding: 0 55px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .nav {
   display: flex;
   gap: 36px;
+
+  .link {
+    height: fit-content;
+    align-self: center;
+    transition: margin 0.2s ease-in-out;
+  }
+
+  .link:hover {
+    margin-bottom: 10px;
+  }
+}
+
+.contacts {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.contacts__social_networks {
+  display: flex;
+  gap: 12px;
+}
+
+.contacts__telephone {
+  padding: 16px 36px;
+  background: rgba(245, 245, 245, 0.6);
+  border-radius: 20px;
+  font-size: 16px;
 }
 
 .active {
-  text-decoration: underline;
-  color: cornflowerblue;
+  border-bottom: 2px solid black;
 }

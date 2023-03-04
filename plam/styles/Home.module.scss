@@ -1,0 +1,15 @@
+.startscreen {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  background-image: url('../public/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.startscreen__title {
+  color: white;
+  font-size: 105px;
+  width: 100%;
+}
