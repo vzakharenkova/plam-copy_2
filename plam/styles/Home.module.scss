@@ -6,10 +6,78 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  &__title {
+    color: white;
+    font-size: 105px;
+    font-weight: 700;
+    width: 100%;
+  }
 }
 
-.startscreen__title {
-  color: white;
-  font-size: 105px;
-  width: 100%;
+.about {
+  height: 100vh;
+
+  &__header {
+    height: 30vh;
+    display: flex;
+    justify-content: flex-end;
+    background: #bfbfbf;
+  }
+
+  &__title {
+    font-size: 64px;
+    font-weight: 700;
+    align-self: flex-end;
+    padding: 0 55px;
+  }
+
+  &__content {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+    padding: 25px 55px 56px 85px;
+  }
+
+  &__img {
+    height: 100%;
+    width: 25%;
+  }
+
+  &__info {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    font-size: 16px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+
+    .text_bold {
+      font-weight: 600;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    height: fit-content;
+    align-self: flex-end;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      gap: 2vw;
+    }
+  }
+
+  .actions__text {
+    border-bottom: solid black 2px;
+  }
 }

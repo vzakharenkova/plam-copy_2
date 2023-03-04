@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import AboutBlock from '../components/homepage/AboutBlock';
 import Startscreen from '../components/homepage/Startscreen';
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Startscreen />
+      <AboutBlock />
     </>
   );
 }
