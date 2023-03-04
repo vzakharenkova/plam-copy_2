@@ -12,35 +12,54 @@
 
 .nav {
   display: flex;
-  gap: 36px;
+  gap: 3vw;
 
   .link {
     height: fit-content;
     align-self: center;
     transition: margin 0.2s ease-in-out;
-  }
 
-  .link:hover {
-    margin-bottom: 10px;
+    &:hover {
+      margin-bottom: 10px;
+    }
   }
+}
+
+.logo__wrapper {
+  flex: 1;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
 }
 
 .contacts {
   display: flex;
-  gap: 36px;
+  gap: 3vw;
   align-items: center;
 }
 
 .contacts__social_networks {
   display: flex;
-  gap: 12px;
+  gap: 1vw;
+
+  * {
+    text-shadow: rgb(173, 141, 110) 1px 0 10px;
+  }
 }
 
 .contacts__telephone {
-  padding: 16px 36px;
+  min-width: fit-content;
+  padding: 2vh 2vw;
   background: rgba(245, 245, 245, 0.6);
   border-radius: 20px;
   font-size: 16px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    text-shadow: rgb(173, 141, 110) 1px 0 10px;
+  }
 }
 
 .active {

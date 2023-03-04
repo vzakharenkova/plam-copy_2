@@ -29,8 +29,8 @@ export default function Header() {
           </Link>
         ))}
       </nav>
-      <Link href="/">
-        <Image src={logo} alt="logo" />
+      <Link href="/" className={styles.logo__wrapper}>
+        <Image src={logo} alt="logo" className={styles.logo} />
       </Link>
       <div className={styles.contacts}>
         <Link href="tel: +375 29 955-06-09" className={styles.contacts__telephone}>
