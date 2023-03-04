@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  gap: 36px;
+}
+
+.active {
+  text-decoration: underline;
+  color: cornflowerblue;
+}
