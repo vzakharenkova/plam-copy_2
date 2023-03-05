@@ -1,5 +1,5 @@
 .startscreen {
-  height: 100vh;
+  height: $block-height;
   display: flex;
   align-items: flex-end;
   background-image: url('../public/background.png');
@@ -8,7 +8,7 @@
   background-size: cover;
 
   &__title {
-    color: white;
+    color: $white;
     font-size: 105px;
     font-weight: 700;
     width: 100%;
@@ -16,10 +16,10 @@
 }
 
 .about {
-  height: 100vh;
+  height: $block-height;
 
   &__header {
-    height: 30vh;
+    height: calc(0.3 * $block-height);
     display: flex;
     justify-content: flex-end;
     background: #bfbfbf;
@@ -33,7 +33,7 @@
   }
 
   &__content {
-    height: 70vh;
+    height: calc(0.7 * $block-height);
     display: flex;
     justify-content: center;
     gap: 4vw;
@@ -70,7 +70,7 @@
     gap: 1vw;
     height: fit-content;
     align-self: flex-end;
-    transition: all 0.4s ease-in-out;
+    transition: all $transition-animation;
 
     &:hover {
       gap: 2vw;
@@ -78,16 +78,16 @@
   }
 
   .actions__text {
-    border-bottom: solid black 2px;
+    border-bottom: $border;
   }
 }
 
 .projects {
   position: relative;
-  height: 100vh;
+  height: $block-height;
   padding: 60px 55px 26px 55px;
   background: rgb(217, 217, 217);
-  background: linear-gradient(0deg, rgba(239, 239, 239, 1) 15%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(0deg, $light-grey 15%, rgba(255, 255, 255, 1) 100%);
 
   &__title {
     position: absolute;
@@ -95,7 +95,7 @@
     left: 0;
     font-size: 120px;
     font-weight: 700;
-    padding: 0 55px;
+    padding: $content-padding;
   }
 
   &__content {
@@ -131,7 +131,7 @@
     padding: 2vh 2vw;
     background: #dfdfdf;
     border-radius: 20px;
-    transition: all 0.4s ease-in-out;
+    transition: all $transition-animation;
 
     &:hover {
       font-weight: 700;
@@ -150,7 +150,7 @@
 .contacts {
   height: 70vh;
   padding: 0 55px;
-  background-color: rgba(239, 239, 239, 1);
+  background-color: $light-grey;
   background-image: url('../public/contacts_bg.svg');
   background-repeat: no-repeat;
   background-size: 60%;
@@ -189,7 +189,7 @@
     }
 
     &__field_label {
-      color: rgba(102, 98, 98, 1);
+      color: $text-grey;
 
       &:hover {
         cursor: pointer;
@@ -221,8 +221,8 @@
       background: transparent;
       border: none;
       font-family: inherit;
-      color: rgba(102, 98, 98, 1);
-      transition: all 0.4s ease-in-out;
+      color: $text-grey;
+      transition: all $transition-animation;
 
       &:hover {
         cursor: pointer;
