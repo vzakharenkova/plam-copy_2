@@ -131,8 +131,12 @@
     padding: 2vh 2vw;
     background: #dfdfdf;
     border-radius: 20px;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      font-weight: 700;
+    }
   }
-  //   }
 
   .img_2 {
     background-image: url('../public/photo_3.png');

@@ -6,6 +6,9 @@ import styles from '@/styles/Home.module.scss';
 import img from '@/public/photo_1.png';
 import arrow from '@/public/arrow.svg';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 export default function AboutBlock() {
   return (
     <section className={styles.about}>
@@ -27,7 +30,8 @@ export default function AboutBlock() {
           </div>
           <Link href="/about" className={styles.about__actions}>
             <div className={styles.actions__text}>УЗНАТЬ БОЛЬШЕ</div>
-            <Image src={arrow} alt="arrow" height={29} />
+            {/* <Image src={arrow} alt="arrow" height={29} /> */}
+            <FontAwesomeIcon icon={faCircleArrowRight} height={29} />
           </Link>
         </div>
       </div>
