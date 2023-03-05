@@ -86,6 +86,8 @@
   position: relative;
   height: 100vh;
   padding: 60px 55px 26px 55px;
+  background: rgb(217, 217, 217);
+  background: linear-gradient(0deg, rgba(239, 239, 239, 1) 15%, rgba(255, 255, 255, 1) 100%);
 
   &__title {
     position: absolute;
@@ -138,5 +140,91 @@
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: contain;
+  }
+}
+
+.contacts {
+  height: 70vh;
+  padding: 0 55px;
+  background-color: rgba(239, 239, 239, 1);
+  background-image: url('../public/contacts_bg.svg');
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: fit-content;
+    padding-top: 2vh;
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 16px;
+    width: 85%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid black;
+    width: 25vw;
+    margin-top: 10vh;
+  }
+
+  .form {
+    &__field_wrapper {
+      padding-top: 2vh;
+      border-bottom: 2px solid black;
+    }
+
+    &__field_label {
+      color: rgba(102, 98, 98, 1);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__input,
+    &__textarea {
+      font-family: inherit;
+      display: block;
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+
+    &__input {
+      height: 5vh;
+    }
+
+    &__textarea {
+      resize: none;
+      height: 15vh;
+      padding: 1vh 0;
+    }
+
+    &__submit_btn {
+      width: fit-content;
+      margin-top: 2vh;
+      background: transparent;
+      border: none;
+      font-family: inherit;
+      color: rgba(102, 98, 98, 1);
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        color: black;
+        font-weight: 700;
+      }
+    }
   }
 }
