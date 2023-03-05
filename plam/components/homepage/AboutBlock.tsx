@@ -1,10 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from '@/styles/Home.module.scss';
 
 import img from '@/public/photo_1.png';
 import arrow from '@/public/arrow.svg';
-import Link from 'next/link';
 
 export default function AboutBlock() {
   return (

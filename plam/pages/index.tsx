@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import AboutBlock from '../components/homepage/AboutBlock';
+import ProjectsBlock from '../components/homepage/ProjectsBlock';
 import Startscreen from '../components/homepage/Startscreen';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <Startscreen />
       <AboutBlock />
+      <ProjectsBlock />
     </>
   );
 }
