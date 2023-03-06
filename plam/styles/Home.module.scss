@@ -7,6 +7,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  &__container {
+    width: 1680px;
+  }
+
   &__title {
     color: $white;
     font-size: 105px;
@@ -17,50 +21,59 @@
 
 .about {
   height: $block-height;
+  display: flex;
+  flex-direction: column;
 
   &__header {
     height: calc(0.3 * $block-height);
+    background: $background-grey;
+  }
+
+  &__container {
     display: flex;
     justify-content: flex-end;
-    background: #bfbfbf;
+    height: 100%;
   }
 
   &__title {
     font-size: 64px;
     font-weight: 700;
     align-self: flex-end;
-    padding: 0 55px;
+  }
+
+  &__wrapper {
+    flex-grow: 1;
+    display: flex;
   }
 
   &__content {
-    height: calc(0.7 * $block-height);
+    flex-grow: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 4vw;
-    padding: 25px 55px 56px 85px;
-  }
-
-  &__img {
-    height: 100%;
-    width: 25%;
   }
 
   &__info {
-    width: 35vw;
     display: flex;
     flex-direction: column;
     gap: 3vh;
     font-size: 16px;
   }
 
-  &__text {
+  &__text_block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 1;
+    gap: 2vh;
+
+    .text {
+      text-align: justify;
+    }
 
     .text_bold {
       font-weight: 600;
+      margin-bottom: 2rem;
     }
   }
 
@@ -83,9 +96,7 @@
 }
 
 .projects {
-  position: relative;
   height: $block-height;
-  padding: 60px 55px 26px 55px;
   background: rgb(217, 217, 217);
   background: linear-gradient(0deg, $light-grey 15%, rgba(255, 255, 255, 1) 100%);
 
@@ -96,6 +107,13 @@
     font-size: 120px;
     font-weight: 700;
     padding: $content-padding;
+  }
+
+  &__container {
+    position: relative;
+    height: 100%;
+    padding-top: 60px;
+    padding-bottom: 26px;
   }
 
   &__content {
@@ -151,10 +169,17 @@
   height: 70vh;
   padding: 0 55px;
   background-color: $light-grey;
-  background-image: url('../public/contacts_bg.svg');
-  background-repeat: no-repeat;
-  background-size: 60%;
-  background-position: center;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-image: url('../public/hand.svg');
+    background-position: 100% 50%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+  }
 
   &__heading {
     display: flex;
@@ -177,9 +202,13 @@
   &__form {
     display: flex;
     flex-direction: column;
-    border-top: 2px solid black;
     width: 25vw;
-    margin-top: 10vh;
+
+    &_wrapper {
+      padding: 30px;
+      border: 2px solid $black;
+      border-radius: 40px;
+    }
   }
 
   .form {
@@ -221,13 +250,13 @@
       background: transparent;
       border: none;
       font-family: inherit;
+      font-size: 1.5rem;
       color: $text-grey;
       transition: all $transition-animation;
 
       &:hover {
         cursor: pointer;
         color: black;
-        font-weight: 700;
       }
     }
   }
