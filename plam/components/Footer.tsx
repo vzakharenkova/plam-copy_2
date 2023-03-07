@@ -7,9 +7,6 @@ import { faViber, faTelegramPlane, faInstagram } from '@fortawesome/free-brands-
 import styles from '@/styles/Footer.module.scss';
 
 import logo from '@/public/logo_footer.svg';
-import viber from '@/public/viber.svg';
-import inst from '@/public/instagram.svg';
-import tg from '@/public/telegram.svg';
 
 export default function Footer() {
   return (
@@ -17,7 +14,7 @@ export default function Footer() {
       <Link href="/" className={styles.footer__logo_field__wrapper}>
         <div className={styles.footer__logo_field}>
           <Image src={logo} alt="logo" />
-          <h2>ДИЗАЙН ИНТЕРЬЕРОВ</h2>
+          <h2>{'дизайн интерьеров'.toUpperCase()}</h2>
         </div>
       </Link>
       <div className={styles.footer__contacts_field}>

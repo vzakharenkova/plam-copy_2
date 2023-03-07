@@ -1,4 +1,5 @@
 import { Montserrat } from 'next/font/google';
+import React from 'react';
 
 import Footer from './Footer';
 import Header from './Header';
@@ -11,7 +12,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className={font.className + ' app__wrapper'}>
+    <div className={`${font.className} app__wrapper`}>
       <Header />
       <main>{children}</main>
       <Footer />
