@@ -4,7 +4,7 @@ import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 
-const font = Montserrat({ subsets: ['latin'], weight: ['500'] });
+const font = Montserrat({ subsets: ['latin'], weight: ['600', '500', '400', '300', '200'] });
 
 type LayoutProps = {
   children: React.ReactNode;

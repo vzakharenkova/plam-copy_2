@@ -33,7 +33,7 @@ export default function Header() {
         <Image src={logo} alt="logo" className={styles.logo} />
       </Link>
       <div className={styles.contacts}>
-        <Link href="tel: +375 29 955-06-09" className={styles.contacts__telephone}>
+        <Link href="tel: +375 29 955-06-09" className={styles.contacts__phone}>
           +375 29 955-06-09
         </Link>
         <div className={styles.contacts__social_networks}>

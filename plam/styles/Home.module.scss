@@ -7,16 +7,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  &__container {
-    width: 1680px;
-  }
-
   &__title {
-    color: $white;
-    font-size: 105px;
-    line-height: 100px;
-    font-weight: 700;
     width: 100%;
+    padding-bottom: 0.5vh;
+    text-align: center;
+    font-size: 8vw;
+    font-weight: 700;
+    color: $white;
   }
 }
 
@@ -48,12 +45,10 @@
   }
 
   &__content {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2vw;
     align-items: center;
-    gap: 4vw;
-    padding: 3vh 0;
   }
 
   &__info {
@@ -64,8 +59,9 @@
   }
 
   &__img {
-    height: 70vh;
-    width: auto;
+    justify-self: center;
+    width: 100%;
+    height: auto;
   }
 
   &__text_block {
@@ -76,10 +72,12 @@
 
     .text {
       text-align: justify;
+      font-size: 1.8rem;
+      font-weight: 300;
     }
 
     .text_bold {
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 2rem;
     }
   }
@@ -99,63 +97,50 @@
 
   .actions__text {
     border-bottom: $border;
+    font-size: 2rem;
   }
 }
 
 .projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: $block-height;
   background: rgb(217, 217, 217);
   background: linear-gradient(0deg, $light-grey 15%, rgba(255, 255, 255, 1) 100%);
 
   &__title {
     position: absolute;
-    top: 0;
+    top: -103px;
     left: 0;
-    font-size: 120px;
+    font-size: 150px;
     font-weight: 700;
     padding: $content-padding;
   }
 
   &__container {
     position: relative;
-    height: 100%;
-    padding-top: 60px;
-    padding-bottom: 26px;
   }
 
   &__content {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 2vw;
-  }
-
-  &__left {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .img_1 {
-    background-image: url('../public/photo_2.png');
-    flex: 1;
-    background-position: right bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .btn__wrapper {
-    padding-top: 13vh;
-    padding-bottom: 8vh;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-rows: 159px 1fr;
+    row-gap: 50px;
+    column-gap: 55px;
+    grid-template-areas:
+    'btn img2'
+    'img1 img2';
   }
 
   .btn {
-    width: fit-content;
-    height: fit-content;
+    grid-area: btn;
+    justify-self: left;
+    align-self: end;
     padding: 2vh 2vw;
-    background: #dfdfdf;
-    border-radius: 20px;
+    background: $background-grey;
+    border-radius: 40px;
+    font-size: 1.6rem;
     transition: all $transition-animation;
 
     &:hover {
@@ -163,12 +148,17 @@
     }
   }
 
-  .img_2 {
-    background-image: url('../public/photo_3.png');
-    flex: 1;
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-size: contain;
+  .img {
+    width: 100%;
+    height: auto;
+
+    &_1 {
+      grid-area: img1;
+    }
+
+    &_2 {
+      grid-area: img2;
+    }
   }
 }
 
@@ -197,12 +187,12 @@
   }
 
   &__title {
-    font-size: 26px;
+    font-size: 3.3rem;
     font-weight: 700;
   }
 
   &__text {
-    font-size: 16px;
+    font-size: 2rem;
     width: 85%;
   }
 
