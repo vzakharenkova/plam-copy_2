@@ -1,5 +1,6 @@
-import styles from '@/styles/Home.module.scss';
 import { FormEvent } from 'react';
+
+import styles from '@/styles/Home.module.scss';
 
 export default function ContactsBlock() {
   const submitForm = (event: FormEvent) => {
