@@ -1,5 +1,5 @@
 .startscreen {
-  height: $block-height;
+  height: 100vh;
   display: flex;
   align-items: flex-end;
   background-image: url('../public/background.png');
@@ -11,19 +11,20 @@
     width: 100%;
     padding-bottom: 0.5vh;
     text-align: center;
-    font-size: 8vw;
+    font-size: 8.11vw;
     font-weight: 700;
     color: $white;
   }
 }
 
 .about {
-  height: $block-height;
   display: flex;
   flex-direction: column;
+  gap: 50px;
+  margin-bottom: 190px;
 
   &__header {
-    height: calc(0.3 * $block-height);
+    height: 30vh;
     background: $background-grey;
   }
 
@@ -47,15 +48,14 @@
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2vw;
+    grid-column-gap: 40px;
     align-items: center;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 3vh;
-    font-size: 16px;
+    gap: 35px;
   }
 
   &__img {
@@ -68,11 +68,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 2vh;
+    gap: 10px;
 
     .text {
       text-align: justify;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: 300;
     }
 
@@ -85,13 +85,13 @@
   &__actions {
     display: flex;
     align-items: center;
-    gap: 1vw;
+    gap: 15px;
     height: fit-content;
     align-self: flex-end;
     transition: all $transition-animation;
 
     &:hover {
-      gap: 2vw;
+      gap: 30px;
     }
   }
 
@@ -105,15 +105,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: $block-height;
   background: rgb(217, 217, 217);
   background: linear-gradient(0deg, $light-grey 15%, rgba(255, 255, 255, 1) 100%);
+  padding-bottom: 150px;
 
   &__title {
     position: absolute;
-    top: -103px;
+    top: -85px;
     left: 0;
-    font-size: 150px;
+    font-size: 125px;
     font-weight: 700;
     padding: $content-padding;
   }
@@ -125,9 +125,9 @@
   &__content {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
-    grid-template-rows: 159px 1fr;
+    grid-template-rows: 135px 1fr;
     row-gap: 50px;
-    column-gap: 55px;
+    column-gap: 25px;
     grid-template-areas:
     'btn img2'
     'img1 img2';
@@ -137,7 +137,7 @@
     grid-area: btn;
     justify-self: left;
     align-self: end;
-    padding: 2vh 2vw;
+    padding: 20px 30px;
     background: $background-grey;
     border-radius: 40px;
     font-size: 1.6rem;
@@ -163,17 +163,16 @@
 }
 
 .contacts {
-  height: 70vh;
-  padding: 0 55px;
   background-color: $light-grey;
+  padding-bottom: 100px;
 
   &__container {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    gap: 50px;
     background-image: url('../public/hand.svg');
-    background-position: 100% 50%;
+    background-position: 100% 70%;
     background-size: 50%;
     background-repeat: no-repeat;
   }
@@ -181,9 +180,8 @@
   &__heading {
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    gap: 20px;
     width: fit-content;
-    padding-top: 2vh;
   }
 
   &__title {
@@ -193,13 +191,13 @@
 
   &__text {
     font-size: 2rem;
-    width: 85%;
+    width: 70%;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    width: 25vw;
+    width: 40%;
 
     &_wrapper {
       padding: 30px;
@@ -210,7 +208,7 @@
 
   .form {
     &__field_wrapper {
-      padding-top: 2vh;
+      padding-top: 20px;
       border-bottom: 2px solid black;
     }
 
@@ -224,6 +222,7 @@
 
     &__input,
     &__textarea {
+      width: 100%;
       font-family: inherit;
       display: block;
       background: transparent;
@@ -232,18 +231,18 @@
     }
 
     &__input {
-      height: 5vh;
+      height: 2.3rem;
     }
 
     &__textarea {
       resize: none;
-      height: 15vh;
-      padding: 1vh 0;
+      height: 60px;
+      padding: 8px 0;
     }
 
     &__submit_btn {
       width: fit-content;
-      margin-top: 2vh;
+      margin-top: 25px;
       background: transparent;
       border: none;
       font-family: inherit;
