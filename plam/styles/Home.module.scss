@@ -50,6 +50,10 @@
     background: $background-grey;
   }
 
+  .ticker__text {
+    color: #fc946f;
+  }
+
   &__container {
     display: flex;
     justify-content: flex-end;
