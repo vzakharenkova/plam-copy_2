@@ -1,10 +1,13 @@
-import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
-import Layout from '../components/Layout';
+
+import { useEffect } from 'react';
 
 import AOS from 'aos';
+
+import Layout from '../components/Layout';
+
+import '@/styles/globals.scss';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
