@@ -1,4 +1,4 @@
-@import "animations/startscreen";
+@import 'animations/startscreen';
 
 .startscreen {
   height: 100vh;
@@ -25,7 +25,6 @@
       animation: startscreen-text-reverse 17s linear infinite;
     }
   }
-
 
   &__text {
     width: 100%;
@@ -132,6 +131,7 @@
   padding-bottom: 150px;
 
   &__title {
+    z-index: 10;
     position: absolute;
     top: -85px;
     left: 0;
@@ -151,8 +151,8 @@
     row-gap: 50px;
     column-gap: 25px;
     grid-template-areas:
-    'btn img2'
-    'img1 img2';
+      'btn img2'
+      'img1 img2';
   }
 
   .btn {
