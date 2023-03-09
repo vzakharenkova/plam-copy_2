@@ -6,3 +6,12 @@
     transform: translateX(-50%);
   }
 }
+
+@keyframes startscreen-text-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(3.8%);
+  }
+}

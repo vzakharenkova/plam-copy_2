@@ -8,26 +8,32 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.ticker {
+  width: 100%;
 
   &__wrapper {
-    width: 100%;
+    display: flex;
+    gap: 8vw;
+    width: 200%;
+    color: $white;
+    animation: startscreen-text 17s linear infinite;
 
-    div {
-      display: flex;
-      gap: 8vw;
-      width: 200%;
-      animation: startscreen-text 17s linear infinite;
+    &_reverse {
+      color: $black;
+      animation: startscreen-text-reverse 17s linear infinite;
     }
   }
 
-  &__title {
+
+  &__text {
     width: 100%;
     white-space: nowrap;
     padding-bottom: 0.5vh;
     text-align: center;
     font-size: 8vw;
     font-weight: 700;
-    color: $white;
   }
 }
 
@@ -38,14 +44,16 @@
   margin-bottom: 190px;
 
   &__header {
-    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18vw;
     background: $background-grey;
   }
 
   &__container {
     display: flex;
     justify-content: flex-end;
-    height: 100%;
   }
 
   &__title {

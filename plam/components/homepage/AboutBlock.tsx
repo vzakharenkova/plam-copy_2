@@ -12,6 +12,12 @@ export default function AboutBlock() {
   return (
     <section className={styles.about}>
       <div className={styles.about__header}>
+        <div className={styles.ticker}>
+          <div className={`${styles.ticker__wrapper} ${styles.ticker__wrapper_reverse}`}>
+            <p className={styles.ticker__text}>{'дизайн интерьеров'.toUpperCase()}</p>
+            <p className={styles.ticker__text}>{'дизайн интерьеров'.toUpperCase()}</p>
+          </div>
+        </div>
         <div className={`container ${styles.about__container}`}>
           <h2 className={styles.about__title}>{'о нас'.toUpperCase()}</h2>
         </div>
