@@ -1,4 +1,4 @@
-@import "animations/startscreen";
+@import 'animations/startscreen';
 
 .startscreen {
   height: 100vh;
@@ -26,7 +26,6 @@
     }
   }
 
-
   &__text {
     width: 100%;
     white-space: nowrap;
@@ -49,6 +48,10 @@
     justify-content: space-between;
     height: 18vw;
     background: $background-grey;
+  }
+
+  .ticker__text {
+    color: #fc946f;
   }
 
   &__container {
@@ -132,6 +135,7 @@
   padding-bottom: 150px;
 
   &__title {
+    z-index: 10;
     position: absolute;
     top: -85px;
     left: 0;
@@ -151,8 +155,8 @@
     row-gap: 50px;
     column-gap: 25px;
     grid-template-areas:
-    'btn img2'
-    'img1 img2';
+      'btn img2'
+      'img1 img2';
   }
 
   .btn {
