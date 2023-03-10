@@ -40,14 +40,14 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
   margin-bottom: 190px;
 
   &__header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 18vw;
+    height: 11vw;
     background: $background-grey;
   }
 

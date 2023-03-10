@@ -11,18 +11,11 @@ import img from '@/public/homepage/about.png';
 export default function AboutBlock() {
   return (
     <section className={styles.about} data-aos="fade" data-aos-duration="1000">
-      <div className={styles.about__header}>
-        <div className={styles.ticker}>
-          <div className={`${styles.ticker__wrapper} ${styles.ticker__wrapper_reverse}`} data-aos="fade-left" data-aos-duration="2000">
-            <p className={styles.ticker__text}>{'дизайн интерьеров'.toUpperCase()}</p>
-            <p className={styles.ticker__text}>{'дизайн интерьеров'.toUpperCase()}</p>
-          </div>
-        </div>
-        <div className={`container ${styles.about__container}`}>
-          <h2 className={styles.about__title} data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-            {'о нас'.toUpperCase()}
-          </h2>
-        </div>
+      <div className={styles.about__header}></div>
+      <div className={`container ${styles.about__container}`}>
+        <h2 className={styles.about__title} data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+          {'о нас'.toUpperCase()}
+        </h2>
       </div>
       <div className={`container ${styles.about__wrapper}`}>
         <div className={styles.about__content}>

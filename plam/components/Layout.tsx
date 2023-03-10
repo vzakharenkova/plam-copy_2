@@ -4,7 +4,7 @@ import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 
-const font = Montserrat({ subsets: ['latin'], weight: ['600', '500', '400', '300', '200'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['600', '500', '400', '300', '200'] });
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className={`${font.className} app__wrapper`}>
+    <div className={`${montserrat.className} app__wrapper`}>
       <Header />
       <main>{children}</main>
       <Footer />

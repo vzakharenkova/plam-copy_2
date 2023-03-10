@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Inter } from 'next/font/google';
 
 import logo from '@/public/logos/logo.svg';
 import viber from '@/public/icons/viber.svg';
@@ -17,11 +18,13 @@ const NAVIGATION = [
   { id: 5, title: 'Контакты', path: '/contacts' },
 ];
 
+const inter = Inter({ subsets: ['latin'], weight: ['500', '400'] });
+
 export default function Header() {
   const { pathname } = useRouter();
 
   return (
-    <header className={styles.header}>
+    <header className={`${inter.className} ${styles.header}`}>
       <nav className={styles.nav}>
         {NAVIGATION.map(({ id, title, path }) => (
           <Link href={path} key={id} className={[pathname === path ? styles.active : '', styles.link].join(' ')} data-aos="zoom-in" data-aos-delay={`${100 * id}`}>
