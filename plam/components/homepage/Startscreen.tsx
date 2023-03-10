@@ -1,28 +1,32 @@
-import styles from '@/styles/Home.module.scss';
 import { useState, useEffect, useRef, MutableRefObject } from 'react';
+
+import styles from '@/styles/Home.module.scss';
 
 export default function Startscreen() {
   const ref = useRef() as MutableRefObject<HTMLElement>;
 
   const [header, setHeader] = useState(0);
 
-  const listenScrollEvent = (event) => {
+  const listenScrollEvent = () => {
     const step = window.scrollY * 0.5;
-    console.log(window.scrollY);
-    console.log(ref.current.offsetHeight);
+
     if (header > window.scrollY) {
       if (window.scrollY <= 200) {
         return setHeader(ref.current.offsetHeight * 0.05);
-      } else if (window.scrollY < ref.current.offsetHeight) {
+      }
+      if (window.scrollY < ref.current.offsetHeight) {
         return setHeader(-ref.current.offsetHeight * 0.25 + step);
       }
     } else {
       if (window.scrollY < 200) {
         return setHeader(ref.current.offsetHeight * 0.05 - step);
-      } else if (window.scrollY < ref.current.offsetHeight) {
+      }
+      if (window.scrollY < ref.current.offsetHeight) {
         return setHeader(-ref.current.offsetHeight * 0.25);
       }
     }
+
+    return null;
   };
 
   useEffect(() => {
