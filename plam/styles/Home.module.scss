@@ -13,6 +13,8 @@
 
 .ticker {
   width: 100%;
+  transition: all 0.7s linear;
+  position: absolute;
 
   &__wrapper {
     display: flex;
