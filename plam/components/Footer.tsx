@@ -6,7 +6,7 @@ import { faViber, faTelegramPlane, faInstagram } from '@fortawesome/free-brands-
 
 import styles from '@/styles/Footer.module.scss';
 
-import logo from '@/public/logo_footer.svg';
+import logo from '@/public/logos/logo_footer.svg';
 
 export default function Footer() {
   return (

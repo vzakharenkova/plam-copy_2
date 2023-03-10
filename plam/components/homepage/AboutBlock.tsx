@@ -6,7 +6,7 @@ import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '@/styles/Home.module.scss';
 
-import img from '@/public/photo_1.png';
+import img from '@/public/homepage/about.png';
 
 export default function AboutBlock() {
   return (

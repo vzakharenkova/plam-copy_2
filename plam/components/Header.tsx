@@ -2,10 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import logo from '@/public/logo.svg';
-import viber from '@/public/viber.svg';
-import inst from '@/public/instagram.svg';
-import tg from '@/public/telegram.svg';
+import logo from '@/public/logos/logo.svg';
+import viber from '@/public/icons/viber.svg';
+import inst from '@/public/icons/instagram.svg';
+import tg from '@/public/icons/telegram.svg';
 
 import styles from '@/styles/Header.module.scss';
 

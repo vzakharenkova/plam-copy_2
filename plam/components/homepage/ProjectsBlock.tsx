@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 import styles from '@/styles/Home.module.scss';
 
-import img1 from '@/public/photo_2.png';
-import img2 from '@/public/photo_3.png';
+import img1 from '@/public/homepage/project1.png';
+import img2 from '@/public/homepage/project2.png';
 
 export default function ProjectsBlock() {
   return (
