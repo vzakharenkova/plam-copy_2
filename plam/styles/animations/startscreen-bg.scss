@@ -1,0 +1,15 @@
+@keyframes changeBg {
+  0%,
+  100% {
+    background-image: url('../../public/homepage/startscreen.jpg');
+  }
+  25% {
+    background-image: url('https://natworld.info/wp-content/uploads/2018/02/vodosvinka-ili-kapibara.jpg');
+  }
+  50% {
+    background-image: url('https://s9.travelask.ru/uploads/post/000/025/923/main_image/full-2af6fc8c8210d9ac04b6f99f426b45bd.jpg');
+  }
+  75% {
+    background-image: url('https://cs14.pikabu.ru/post_img/big/2021/05/19/10/162144132918582960.jpg');
+  }
+}

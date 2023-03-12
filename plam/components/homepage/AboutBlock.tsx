@@ -10,9 +10,8 @@ import img from '@/public/homepage/about.png';
 
 export default function AboutBlock() {
   return (
-    <section className={styles.about} data-aos="fade" data-aos-duration="1000">
-      <div className={styles.about__header}></div>
-      <div className={`container ${styles.about__container}`}>
+    <section className={styles.about}>
+      <div className={`container ${styles.about__container}`} data-aos="fade" data-aos-duration="1000">
         <h2 className={styles.about__title} data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           {'о нас'.toUpperCase()}
         </h2>
