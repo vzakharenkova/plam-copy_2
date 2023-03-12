@@ -3,21 +3,27 @@
 @import 'variables';
 
 .startscreen {
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  //   background-image: url('../public/homepage/startscreen.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: all 0.5s ease-in-out;
-  animation: changeBg 10s infinite;
+  //display: flex;
+  //align-items: flex-end;
+  margin-bottom: 50px;
+
+  &_background {
+    width: 100%;
+    height: 100vh;
+       background-image: url('../public/homepage/startscreen.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s ease-in-out;
+    //animation: changeBg 10s infinite;
+  }
 }
 
 .ticker {
   width: 100%;
-  transition: all 0.7s linear;
-  position: absolute;
+  //transition: all 0.7s linear;
+  position: fixed;
+  bottom: 0;
 
   &__wrapper {
     display: flex;
