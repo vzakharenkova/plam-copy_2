@@ -1,0 +1,67 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "homepage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Plam | Дизайн интерьеров"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "main_heading": {
+      "type": "string",
+      "default": "дизайн интерьеров"
+    },
+    "about_heading": {
+      "type": "string",
+      "default": "о нас"
+    },
+    "about_text_content": {
+      "type": "richtext",
+      "default": "Мы команда, увлеченных свои делом, архитекторов и дизайнеров. В основе наших проектов - функциональная планировка, законченная композиция и разумный бюджет для воплощения проекта.  Наша цель: создавать индивидуальные и комфортные интерьеры.  Мы не используем штампы и не преобразуем готовые решения. Каждый проект для нас - чистый лист. Поэтому среди работ Вы не найдете двух одинаковых интерьеров. Наша работа над проектами строится на диалоге и комфортном сотрудничестве. Мы искренне любим своё дело, всегда находим лучшие решения и уделяем большое внимание деталям и срокам. Именно так мы делаем клиентов счастливыми и довольными результатом."
+    },
+    "about_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "projects_heading": {
+      "type": "string",
+      "default": "проекты"
+    },
+    "projects_imgs": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "contacts_heading": {
+      "type": "string",
+      "default": "напишите нам"
+    },
+    "contacts_text_content": {
+      "type": "text",
+      "default": "И мы ответим на любые интересующие вас вопросы"
+    }
+  }
+}
