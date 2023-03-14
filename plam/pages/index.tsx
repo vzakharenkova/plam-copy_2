@@ -7,12 +7,6 @@ import ProjectsBlock from '../components/homepage/ProjectsBlock';
 import Startscreen from '../components/homepage/Startscreen';
 import { HomepageData, SingleTypeResponce } from '../interfaces/apiInterface';
 
-interface HeadData {
-  title: string;
-  description: string;
-  keywords: string[];
-}
-
 interface Data {
   data: SingleTypeResponce<HomepageData>;
 }

@@ -3,27 +3,6 @@ export interface SingleTypeResponce<T> {
   attributes: T;
 }
 
-export interface HomepageData {
-  title: string;
-  keywords: string | null;
-  description: string | null;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  main_heading: string;
-  about_heading: string;
-  about_text_content: string;
-  projects_heading: string;
-  contacts_heading: string;
-  contacts_text_content: string;
-  about_img: {
-    data: { id: number; attributes: ApiImgData } | null;
-  };
-  projects_imgs: {
-    data: { id: number; attributes: ApiImgData }[] | null;
-  };
-}
-
 interface ApiImgFormatDescription {
   ext: string;
   url: string;
@@ -56,4 +35,25 @@ export interface ApiImgData {
   provider_metadata: null | string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface HomepageData {
+  title: string;
+  keywords: string | null;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  main_heading: string;
+  about_heading: string;
+  about_text_content: string;
+  projects_heading: string;
+  contacts_heading: string;
+  contacts_text_content: string;
+  about_img: {
+    data: { id: number; attributes: ApiImgData } | null;
+  };
+  projects_imgs: {
+    data: { id: number; attributes: ApiImgData }[] | null;
+  };
 }
