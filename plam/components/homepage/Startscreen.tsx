@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 
 import styles from '@/styles/Home.module.scss';
 
-export default function Startscreen() {
+export interface StartscreenData {
+  heading: string;
+}
+
+export default function Startscreen({ data }: { data: StartscreenData }) {
   const [header, setHeader] = useState(0);
 
   const listenScrollEvent = () => {
@@ -22,8 +26,8 @@ export default function Startscreen() {
       <div className={styles.startscreen_background}></div>
       <div className={styles.ticker} style={{ bottom: header }}>
         <div className={styles.ticker__wrapper} data-aos="fade-right" data-aos-duration="2000">
-          <p className={styles.ticker__text}>{'дизайн интерьеров'.toUpperCase()}</p>
-          <p className={styles.ticker__text}>{'дизайн интерьеров'.toUpperCase()}</p>
+          <p className={styles.ticker__text}>{(data.heading || 'дизайн интерьеров').toUpperCase()}</p>
+          <p className={styles.ticker__text}>{(data.heading || 'дизайн интерьеров').toUpperCase()}</p>
         </div>
       </div>
       <div className={styles.about__header}></div>

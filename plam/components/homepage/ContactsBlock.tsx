@@ -2,7 +2,12 @@ import { FormEvent } from 'react';
 
 import styles from '@/styles/Home.module.scss';
 
-export default function ContactsBlock() {
+export interface ContactsData {
+  heading: string;
+  content: string;
+}
+
+export default function ContactsBlock({ data }: { data: ContactsData }) {
   const submitForm = (event: FormEvent) => {
     event.preventDefault();
   };
@@ -11,8 +16,8 @@ export default function ContactsBlock() {
     <section className={styles.contacts} data-aos="fade" data-aos-duration="1000">
       <div className={`container ${styles.contacts__container}`} data-aos="fade">
         <div className={styles.contacts__heading}>
-          <h2 className={styles.contacts__title}>{'напишите нам'.toUpperCase()}</h2>
-          <div className={styles.contacts__text}>И мы ответим на любые интересующие вас вопросы</div>
+          <h2 className={styles.contacts__title}>{(data.heading || 'напишите нам').toUpperCase()}</h2>
+          <div className={styles.contacts__text}>{data.content || 'И мы ответим на любые интересующие вас вопросы'}</div>
         </div>
         <div className={styles.contacts__form_wrapper} data-aos="zoom-in" data-aos-delay="100">
           <form className={styles.contacts__form} onSubmit={(e) => submitForm(e)}>
