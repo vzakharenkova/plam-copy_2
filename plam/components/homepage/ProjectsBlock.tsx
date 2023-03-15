@@ -6,17 +6,12 @@ import styles from '@/styles/Home.module.scss';
 import img1 from '@/public/homepage/project1.png';
 import img2 from '@/public/homepage/project2.png';
 
-export interface ProjectsData {
-  heading: string;
-  imgs: string[] | undefined;
-}
-
-export default function ProjectsBlock({ data }: { data: ProjectsData }) {
+export default function ProjectsBlock() {
   return (
     <section className={styles.projects} data-aos="fade" data-aos-duration="1000">
       <div className={`container ${styles.projects__container}`}>
         <h2 className={styles.projects__title} data-aos="slide-up">
-          {(data.heading || 'проекты').toUpperCase()}
+          {'проекты'.toUpperCase()}
         </h2>
         <div className={styles.projects__content}>
           <Link href="/projects" className={styles.btn}>
