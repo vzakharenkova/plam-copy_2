@@ -9,6 +9,7 @@ import inst from '@/public/icons/instagram.svg';
 import tg from '@/public/icons/telegram.svg';
 
 import styles from '@/styles/Header.module.scss';
+import useScrollDirection from '../utils/useScrollDirection';
 
 const NAVIGATION = [
   { id: 1, title: 'Главная', path: '/' },
@@ -22,9 +23,10 @@ const inter = Inter({ subsets: ['latin'], weight: ['500', '400'] });
 
 export default function Header() {
   const { pathname } = useRouter();
+  const scrollDirection = useScrollDirection();
 
   return (
-    <header className={`${inter.className} ${styles.header}`}>
+    <header className={`${inter.className} ${styles.header} ${scrollDirection === 'down' ? styles.scroll_down : styles.scroll_up}`}>
       <nav className={styles.nav}>
         {NAVIGATION.map(({ id, title, path }) => (
           <Link href={path} key={id} className={[pathname === path ? styles.active : '', styles.link].join(' ')} data-aos="zoom-in" data-aos-delay={`${100 * id}`}>

@@ -1,13 +1,22 @@
 .header {
   z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
+  transition: top 0.2s ease-in-out;
   width: 100%;
   height: $header-height;
   padding: $content-padding;
   display: grid;
   grid-template-columns: 1fr 0.3fr 1fr;
   background: rgba(255, 255, 255, 0.7);
+}
+
+.scroll_down {
+  top: -$header-height;
+}
+
+.scroll_up {
+  top: 0;
 }
 
 .nav {
