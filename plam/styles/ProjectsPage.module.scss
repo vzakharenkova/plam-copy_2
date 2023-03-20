@@ -1,0 +1,44 @@
+@import 'variables';
+
+.headingblock {
+  background-color: $light-grey;
+  height: 850px;
+  display: flex;
+  align-items: center;
+
+  .content {
+    &_wrapper {
+      display: flex;
+      gap: 54px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_heading {
+      font-weight: 600;
+      font-size: 128px;
+      line-height: 156px;
+    }
+
+    &_paragraph {
+      width: 440px;
+      font-family: 'Inter';
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 23px;
+    }
+  }
+
+  .text_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+.projectslist_block {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

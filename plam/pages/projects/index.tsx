@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import HeadingBlock from '../../components/projectspage/HeadingBlock';
+import ProjectsListBlock from '../../components/projectspage/ProjectsListBlock';
 
 export default function Projects() {
   return (
@@ -6,7 +8,8 @@ export default function Projects() {
       <Head>
         <title>Plam | Проекты</title>
       </Head>
-      <div>Наши проекты</div>
+      <HeadingBlock />
+      <ProjectsListBlock />
     </>
   );
 }
