@@ -1,6 +1,6 @@
-@import 'animations/ticker';
-@import 'animations/startscreen-bg';
-@import 'variables';
+@import '../animations/ticker';
+@import '../animations/startscreen-bg';
+@import 'styles/variables';
 
 .startscreen {
   //display: flex;
@@ -10,7 +10,7 @@
   &_background {
     width: 100%;
     height: 100vh;
-       background-image: url('../public/homepage/startscreen.jpg');
+    background-image: url('../../public/homepage/startscreen.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +21,6 @@
 
 .ticker {
   width: 100%;
-  //transition: all 0.7s linear;
   position: fixed;
   bottom: 0;
 
@@ -93,6 +92,7 @@
     display: flex;
     flex-direction: column;
     gap: 35px;
+    padding-left: 15px;
   }
 
   &__img {
@@ -105,17 +105,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
 
     .text {
-      text-align: justify;
-      font-size: 1.4rem;
+      font-family: var(--font-inter);
+      //font-size: 1.4rem;
       font-weight: 300;
+      line-height: 23px;
     }
 
     .text_bold {
       font-weight: 500;
-      margin-bottom: 2rem;
     }
   }
 
@@ -209,7 +209,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     gap: 50px;
-    background-image: url('../public/homepage/form_bg.svg');
+    background-image: url('../../public/homepage/form_bg.svg');
     background-position: 100% 70%;
     background-size: 50%;
     background-repeat: no-repeat;

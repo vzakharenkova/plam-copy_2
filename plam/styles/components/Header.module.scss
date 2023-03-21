@@ -1,13 +1,25 @@
+@import "styles/variables";
+
 .header {
-  z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 0.3fr 1fr;
   width: 100%;
   height: $header-height;
   padding: $content-padding;
-  display: grid;
-  grid-template-columns: 1fr 0.3fr 1fr;
+  font-family: var(--font-inter);
   background: rgba(255, 255, 255, 0.7);
+  transition: top 0.2s ease-in-out;
+}
+
+.scroll_down {
+  top: -$header-height;
+}
+
+.scroll_up {
+  top: 0;
 }
 
 .nav {

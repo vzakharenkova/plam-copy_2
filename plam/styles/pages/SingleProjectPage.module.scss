@@ -1,0 +1,116 @@
+@import 'styles/variables';
+
+.single_project_page {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 282px;
+  min-height: fit-content;
+
+  .content_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .page__heading {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .carousel {
+    height: 550px;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 2px solid $black;
+    border-bottom: 2px solid $black;
+
+    &__content {
+      height: 100%;
+      width: 100%;
+      background-color: $background-grey;
+    }
+  }
+
+  .project_information {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project_params_wrapper {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 78px;
+
+    .project_params {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      font-family: var(--font-inter);
+
+      .project_param {
+        &__highlighted {
+          color: $orange;
+          & * {
+            display: inline;
+          }
+        }
+      }
+    }
+
+    .project_description {
+      display: flex;
+      flex-direction: column;
+      gap: 21px;
+
+      &__text {
+        font-family: var(--font-inter);
+        font-weight: 300;
+        line-height: 23px;
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .project_plan_wrapper {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    .project_plan {
+      height: 472px;
+      background-color: $light-grey;
+      width: 100%;
+    }
+  }
+
+  .page__subheading {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 23px;
+  }
+
+  .btn {
+    align-self: flex-start;
+    margin-left: 15%;
+    width: 274px;
+    height: 49px;
+    border: 1px solid $black;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
