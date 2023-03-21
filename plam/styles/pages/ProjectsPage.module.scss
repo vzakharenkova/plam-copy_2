@@ -1,6 +1,6 @@
-@import 'variables';
+@import 'styles/variables';
 
-.headingblock {
+.startscreen {
   background-color: $light-grey;
   height: 850px;
   display: flex;
@@ -21,8 +21,8 @@
     }
 
     &_paragraph {
-      width: 440px;
-      font-family: 'Inter';
+      width: 516px;
+      font-family: var(--font-inter);
       font-weight: 300;
       font-size: 16px;
       line-height: 23px;
@@ -36,7 +36,7 @@
   }
 }
 
-.projectslist_block {
+.projects {
   height: 300px;
   display: flex;
   align-items: center;

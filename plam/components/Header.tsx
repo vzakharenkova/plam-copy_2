@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Inter } from 'next/font/google';
 
 import logo from '@/public/logos/logo.svg';
 import viber from '@/public/icons/viber.svg';
 import inst from '@/public/icons/instagram.svg';
 import tg from '@/public/icons/telegram.svg';
 
-import styles from '@/styles/Header.module.scss';
+import styles from '@/styles/components/Header.module.scss';
+
 import useScrollDirection from '../utils/useScrollDirection';
 
 const NAVIGATION = [
@@ -19,17 +19,25 @@ const NAVIGATION = [
   { id: 5, title: 'Контакты', path: '/contacts' },
 ];
 
-const inter = Inter({ subsets: ['latin'], weight: ['500', '400'] });
-
 export default function Header() {
   const { pathname } = useRouter();
   const scrollDirection = useScrollDirection();
 
   return (
-    <header className={`${inter.className} ${styles.header} ${scrollDirection === 'down' ? styles.scroll_down : styles.scroll_up}`}>
+    <header
+      className={`${styles.header} ${
+        scrollDirection === 'down' ? styles.scroll_down : styles.scroll_up
+      }`}
+    >
       <nav className={styles.nav}>
         {NAVIGATION.map(({ id, title, path }) => (
-          <Link href={path} key={id} className={[pathname === path ? styles.active : '', styles.link].join(' ')} data-aos="zoom-in" data-aos-delay={`${100 * id}`}>
+          <Link
+            href={path}
+            key={id}
+            className={`${pathname === path ? styles.active : ''} ${styles.link}`}
+            data-aos="zoom-in"
+            data-aos-delay={`${100 * id}`}
+          >
             {title.toUpperCase()}
           </Link>
         ))}
@@ -38,15 +46,32 @@ export default function Header() {
         <Image src={logo} alt="logo" className={styles.logo} />
       </Link>
       <div className={styles.contacts}>
-        <Link href="tel: +375 29 955-06-09" className={styles.contacts__phone} data-aos="zoom-in" data-aos-delay="500">
+        <Link
+          href="tel: +375 29 955-06-09"
+          className={styles.contacts__phone}
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
           +375 29 955-06-09
         </Link>
         <div className={styles.contacts__social_networks}>
           <Link href={''}>
-            <Image src={viber} alt="viber" height={28} data-aos="zoom-in" data-aos-delay="300" />
+            <Image
+              src={viber}
+              alt="viber"
+              height={28}
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            />
           </Link>
           <Link href={''}>
-            <Image src={tg} alt="telegram" height={28} data-aos="zoom-in" data-aos-delay="200" />
+            <Image
+              src={tg}
+              alt="telegram"
+              height={28}
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            />
           </Link>
           <Link href={''} data-aos="zoom-in" data-aos-delay="100">
             <Image src={inst} alt="instagram" height={28} />

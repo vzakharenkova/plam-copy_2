@@ -2,9 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faViber, faTelegramPlane, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {
+  faViber,
+  faTelegramPlane,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 
-import styles from '@/styles/Footer.module.scss';
+import styles from '@/styles/components/Footer.module.scss';
 
 import logo from '@/public/logos/logo_footer.svg';
 
@@ -19,7 +23,7 @@ export default function Footer() {
       </Link>
       <div className={styles.footer__contacts_field}>
         <div className={styles.footer__contacts}>
-          <Link href="email: info@plam.by">info@plam.by</Link>
+          <a href="mailto: info@plam.by">info@plam.by</a>
           <Link href="tel: +375 29 955-06-09">+375 29 955-06-09</Link>
         </div>
         <div className={styles.footer__social_networks}>

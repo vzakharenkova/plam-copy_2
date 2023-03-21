@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import styles from '@/styles/Home.module.scss';
+import styles from '@/styles/pages/HomePage.module.scss';
 
 import img1 from '@/public/homepage/project1.png';
 import img2 from '@/public/homepage/project2.png';
@@ -17,8 +17,20 @@ export default function ProjectsBlock() {
           <Link href="/projects" className={styles.btn}>
             СМОТРЕТЬ ВСЕ
           </Link>
-          <Image src={img1} alt={'фрагмент дизайн-проекта (корридор)'} className={`${styles.img} ${styles.img_1}`} data-aos="fade-right" data-aos-easing="ease-in-sine" />
-          <Image src={img2} alt={'фрагмент дизайн-проекта (кухня)'} className={`${styles.img} ${styles.img_2}`} data-aos="fade-left" data-aos-easing="ease-in-sine" />
+          <Image
+            src={img1}
+            alt={'фрагмент дизайн-проекта (корридор)'}
+            className={`${styles.img} ${styles.img_1}`}
+            data-aos="fade-right"
+            data-aos-easing="ease-in-sine"
+          />
+          <Image
+            src={img2}
+            alt={'фрагмент дизайн-проекта (кухня)'}
+            className={`${styles.img} ${styles.img_2}`}
+            data-aos="fade-left"
+            data-aos-easing="ease-in-sine"
+          />
         </div>
       </div>
     </section>
