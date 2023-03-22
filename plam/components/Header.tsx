@@ -35,45 +35,26 @@ export default function Header() {
             href={path}
             key={id}
             className={`${pathname === path ? styles.active : ''} ${styles.link}`}
-            data-aos="zoom-in"
-            data-aos-delay={`${100 * id}`}
           >
             {title.toUpperCase()}
           </Link>
         ))}
       </nav>
-      <Link href="/" className={styles.logo__wrapper} data-aos="flip-up">
+      <Link href="/" className={styles.logo__wrapper}>
         <Image src={logo} alt="logo" className={styles.logo} />
       </Link>
       <div className={styles.contacts}>
-        <Link
-          href="tel: +375 29 955-06-09"
-          className={styles.contacts__phone}
-          data-aos="zoom-in"
-          data-aos-delay="500"
-        >
+        <Link href="tel: +375 29 955-06-09" className={styles.contacts__phone}>
           +375 29 955-06-09
         </Link>
         <div className={styles.contacts__social_networks}>
           <Link href={''}>
-            <Image
-              src={viber}
-              alt="viber"
-              height={28}
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            />
+            <Image src={viber} alt="viber" height={28} />
           </Link>
           <Link href={''}>
-            <Image
-              src={tg}
-              alt="telegram"
-              height={28}
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            />
+            <Image src={tg} alt="telegram" height={28} />
           </Link>
-          <Link href={''} data-aos="zoom-in" data-aos-delay="100">
+          <Link href={''}>
             <Image src={inst} alt="instagram" height={28} />
           </Link>
         </div>

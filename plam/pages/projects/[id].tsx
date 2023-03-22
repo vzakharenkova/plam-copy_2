@@ -1,13 +1,47 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { useState } from 'react';
+
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
+import { useKeenSlider } from 'keen-slider/react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
-import Image from 'next/image';
+
+import 'keen-slider/keen-slider.min.css';
 
 export default function Projects() {
   const { query } = useRouter();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    loop: true,
+    rtl: false,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setLoaded(true);
+    },
+    slides: {
+      origin: 'center',
+      perView: 'auto',
+      spacing: 8,
+    },
+  });
+  const carouselItemsUrl = [
+    'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/d/d7/VOLKSWAGEN_TIGUAN_X_EXTERIOR%281%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/c/c0/VOLKSWAGEN_TIGUAN_X_ALLOY_WHEEL.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/b/ba/Volkswagen-VW-1200-084554.jpg',
+  ];
+
   return (
     <>
       <Head>
@@ -17,7 +51,36 @@ export default function Projects() {
         <div className={`container ${styles.content_wrapper}`}>
           <h1 className={styles.page__heading}>Маленькая квартира для сдачи в аренду</h1>
           <div className={styles.carousel}>
-            <div className={styles.carousel__content}></div>
+            {/* <div className={styles.carousel__content}></div> */}
+            {loaded && instanceRef.current && (
+              <>
+                <FontAwesomeIcon
+                  className={[styles.arrow, styles.arrow_left].join(' ')}
+                  icon={faAngleLeft}
+                  onClick={() => instanceRef.current?.prev()}
+                />
+              </>
+            )}
+            <div ref={sliderRef} className="keen-slider">
+              {carouselItemsUrl.map((url, i) => (
+                <img
+                  src={url}
+                  className={['keen-slider__slide', styles.carousel_item].join(' ')}
+                  style={{ maxWidth: 'fit-content', minWidth: 'fit-content' }}
+                  alt={'test image'}
+                  key={i}
+                />
+              ))}
+            </div>
+            {loaded && instanceRef.current && (
+              <>
+                <FontAwesomeIcon
+                  className={[styles.arrow, styles.arrow_right].join(' ')}
+                  icon={faAngleRight}
+                  onClick={() => instanceRef.current?.next()}
+                />
+              </>
+            )}
           </div>
           <div className={styles.project_information}>
             <div className={styles.project_params_wrapper}>

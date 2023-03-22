@@ -17,6 +17,7 @@
     "@img-comparison-slider/react": "^8.0.0",
     "aos": "^2.3.4",
     "img-comparison-slider": "^8.0.0",
+    "keen-slider": "^6.8.5",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
