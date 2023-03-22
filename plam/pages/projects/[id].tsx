@@ -57,13 +57,15 @@ export default function Projects() {
                   </p>
                 </div>
               </div>
+              <button className={`button ${styles.btn}`}>
+                {'заказать дизайн-проект'.toUpperCase()}
+              </button>
             </div>
             <div className={styles.project_plan_wrapper}>
               <h2 className={styles.page__subheading}>{'план'.toUpperCase()}</h2>
               <div className={styles.project_plan}></div>
             </div>
           </div>
-          <button className={styles.btn}>{'заказать дизайн-проект'.toUpperCase()}</button>
         </div>
       </section>
     </>

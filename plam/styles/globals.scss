@@ -74,6 +74,20 @@ img {
   padding: $content-padding;
 }
 
-.text_regular {
-  font-family: var(--test);
+.button {
+  padding: 16px 36px;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid $black;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $orange;
+    color: $white;
+    border-color: $orange;
+  }
 }

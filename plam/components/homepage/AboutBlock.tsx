@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
-
 import styles from '@/styles/pages/HomePage.module.scss';
 
 import img from '@/public/homepage/about.png';
@@ -54,11 +51,11 @@ export default function AboutBlock() {
                 счастливыми и довольными результатом.
               </p>
             </div>
-            <Link href="/about" className={styles.about__actions} data-aos="zoom-in-left">
-              <div className={styles.actions__text}>{'узнать больше'.toUpperCase()}</div>
-              {/* <Image src={arrow} alt="arrow" height={29} /> */}
-              <FontAwesomeIcon icon={faCircleArrowRight} height={29} />
-            </Link>
+            <div className={styles.about__btn_wrapper} data-aos="zoom-in-left">
+              <Link href="/about" className={'button'}>
+                {'узнать больше'.toUpperCase()}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

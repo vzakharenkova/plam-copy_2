@@ -61,10 +61,6 @@
     background: $background-grey;
   }
 
-  .ticker__text {
-    color: #fc946f;
-  }
-
   &__container {
     display: flex;
     justify-content: flex-end;
@@ -109,7 +105,6 @@
 
     .text {
       font-family: var(--font-inter);
-      //font-size: 1.4rem;
       font-weight: 300;
       line-height: 23px;
     }
@@ -119,22 +114,8 @@
     }
   }
 
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    height: fit-content;
+  &__btn_wrapper {
     align-self: flex-end;
-    transition: all $transition-animation;
-
-    &:hover {
-      gap: 30px;
-    }
-  }
-
-  .actions__text {
-    border-bottom: $border;
-    font-size: 2rem;
   }
 }
 
