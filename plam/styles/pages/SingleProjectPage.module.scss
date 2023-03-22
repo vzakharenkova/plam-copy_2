@@ -40,6 +40,7 @@
     gap: 48px;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
 
   .project_params_wrapper {
@@ -89,8 +90,16 @@
     gap: 21px;
 
     .project_plan {
-      height: 472px;
       background-color: $light-grey;
+      width: 100%;
+      --divider-width: 2px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .project_img {
       width: 100%;
     }
   }

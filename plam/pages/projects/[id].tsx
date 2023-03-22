@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
+import Image from 'next/image';
 
 export default function Projects() {
   const { query } = useRouter();
@@ -63,7 +65,24 @@ export default function Projects() {
             </div>
             <div className={styles.project_plan_wrapper}>
               <h2 className={styles.page__subheading}>{'план'.toUpperCase()}</h2>
-              <div className={styles.project_plan}></div>
+              <ImgComparisonSlider className={styles.project_plan}>
+                <Image
+                  slot="first"
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Bmw_e12_v_sst.jpg"
+                  className={styles.project_img}
+                  alt={'test image'}
+                  width={600}
+                  height={400}
+                />
+                <Image
+                  slot="second"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/BMW5er_6.jpg/2880px-BMW5er_6.jpg"
+                  className={styles.project_img}
+                  alt={'test image'}
+                  width={600}
+                  height={400}
+                />
+              </ImgComparisonSlider>
             </div>
           </div>
         </div>

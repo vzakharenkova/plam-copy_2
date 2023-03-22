@@ -4,6 +4,9 @@ const nextConfig = {
   sassOptions: {
     additionalData: `@import "styles/variables.scss";`,
   },
+  images: {
+    domains: ['upload.wikimedia.org'],
+  },
 };
 
 module.exports = nextConfig;
