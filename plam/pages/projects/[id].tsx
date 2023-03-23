@@ -16,6 +16,7 @@ import 'keen-slider/keen-slider.min.css';
 
 export default function Projects() {
   const { query } = useRouter();
+  // eslint-disable-next-line no-unused-vars
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -51,11 +52,10 @@ export default function Projects() {
         <div className={`container ${styles.content_wrapper}`}>
           <h1 className={styles.page__heading}>Маленькая квартира для сдачи в аренду</h1>
           <div className={styles.carousel}>
-            {/* <div className={styles.carousel__content}></div> */}
             {loaded && instanceRef.current && (
               <>
                 <FontAwesomeIcon
-                  className={[styles.arrow, styles.arrow_left].join(' ')}
+                  className={`${styles.arrow} ${styles.arrow_left}`}
                   icon={faAngleLeft}
                   onClick={() => instanceRef.current?.prev()}
                 />
@@ -65,7 +65,7 @@ export default function Projects() {
               {carouselItemsUrl.map((url, i) => (
                 <img
                   src={url}
-                  className={['keen-slider__slide', styles.carousel_item].join(' ')}
+                  className={`keen-slider__slide ${styles.carousel_item}`}
                   style={{ maxWidth: 'fit-content', minWidth: 'fit-content' }}
                   alt={'test image'}
                   key={i}
@@ -75,15 +75,15 @@ export default function Projects() {
             {loaded && instanceRef.current && (
               <>
                 <FontAwesomeIcon
-                  className={[styles.arrow, styles.arrow_right].join(' ')}
+                  className={`${styles.arrow} ${styles.arrow_right}`}
                   icon={faAngleRight}
                   onClick={() => instanceRef.current?.next()}
                 />
               </>
             )}
           </div>
-          <div className={styles.project_information}>
-            <div className={styles.project_params_wrapper}>
+          <div className={styles.project_info}>
+            <div className={styles.project_text}>
               <div className={styles.project_params}>
                 <p className={styles.project_param}>
                   Расположение:
