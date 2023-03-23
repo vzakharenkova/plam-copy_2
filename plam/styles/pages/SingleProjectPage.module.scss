@@ -35,8 +35,14 @@
   z-index: 6;
   top: 50%;
   color: $white;
-  font-size: 37px;
+  height: 37px;
+  width: 37px;
   transition: $transition-animation;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
   cursor: pointer;
 
   &:hover {
@@ -45,10 +51,12 @@
 
   &_left {
     left: 8px;
+    background-image: url('../../public/icons/arrow_left.svg');
   }
 
   &_right {
     right: 8px;
+    background-image: url('../../public/icons/arrow_right.svg');
   }
 }
 
@@ -108,10 +116,10 @@
 
     &__highlighted {
       color: $orange;
-        & * {
-          display: inline;
-        }
+      & * {
+        display: inline;
       }
+    }
 
     &:before {
       content: '';
@@ -125,19 +133,19 @@
 
     &:nth-child(1) {
       &:before {
-        background-image: url("../../public/icons/map.png");
+        background-image: url('../../public/icons/map.png');
       }
     }
 
     &:nth-child(2) {
       &:before {
-        background-image: url("../../public/icons/area.png");
+        background-image: url('../../public/icons/area.png');
       }
     }
 
     &:nth-child(3) {
       &:before {
-        background-image: url("../../public/icons/calendar.png");
+        background-image: url('../../public/icons/calendar.png');
       }
     }
   }

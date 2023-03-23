@@ -1,16 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faViber,
-  faTelegramPlane,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons';
-
 import styles from '@/styles/components/Footer.module.scss';
 
 import logo from '@/public/logos/logo_footer.svg';
+
+import instagram from '@/public/icons/instagram_white.svg';
+import telegram from '@/public/icons/telegram_white.svg';
+import viber from '@/public/icons/viber_white.svg';
 
 export default function Footer() {
   return (
@@ -28,13 +25,13 @@ export default function Footer() {
         </div>
         <div className={styles.footer__social_networks}>
           <Link href={''}>
-            <FontAwesomeIcon icon={faViber} height={28} />
+            <Image src={viber} alt="viber" height={28} width={28} />
           </Link>
           <Link href={''}>
-            <FontAwesomeIcon icon={faTelegramPlane} height={28} />
+            <Image src={telegram} alt="telegram" height={28} width={28} />
           </Link>
           <Link href={''}>
-            <FontAwesomeIcon icon={faInstagram} height={28} />
+            <Image src={instagram} alt="instagram" height={28} width={28} />
           </Link>
         </div>
       </div>

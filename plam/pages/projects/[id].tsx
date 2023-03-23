@@ -2,28 +2,33 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
-import { useKeenSlider } from 'keen-slider/react';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  KeenSliderHooks,
+  KeenSliderInstance,
+  KeenSliderOptions,
+  useKeenSlider,
+} from 'keen-slider/react';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
-
 import 'keen-slider/keen-slider.min.css';
+
+import Modal from '../../components/Modal';
 
 export default function Projects() {
   const { query } = useRouter();
-  // eslint-disable-next-line no-unused-vars
-  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  const sliderOptions: KeenSliderOptions<{}, {}, KeenSliderHooks> = {
     initial: 0,
+    renderMode: 'performance',
     loop: true,
-    rtl: false,
-    slideChanged(slider) {
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    slideChanged(slider: KeenSliderInstance<{}, {}, KeenSliderHooks>) {
       setCurrentSlide(slider.track.details.rel);
     },
     created() {
@@ -34,7 +39,9 @@ export default function Projects() {
       perView: 'auto',
       spacing: 8,
     },
-  });
+  };
+
+  const [sliderRef, instanceRef] = useKeenSlider(sliderOptions);
   const carouselItemsUrl = [
     'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
     'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
@@ -43,43 +50,69 @@ export default function Projects() {
     'https://upload.wikimedia.org/wikipedia/commons/b/ba/Volkswagen-VW-1200-084554.jpg',
   ];
 
+  const [showModal, setShowModal] = useState(false);
+  const [selectedImg, setSelectedImg] = useState(0);
+
+  const handleOpenModal = (index: number) => {
+    setShowModal(true);
+    setSelectedImg(index);
+    document.body.style.overflowY = 'hidden';
+  };
+
+  const handleCloseModal = (e: Event) => {
+    e.stopPropagation();
+
+    setShowModal(false);
+    document.body.style.overflowY = 'auto';
+  };
+
+  useEffect(() =>
+    instanceRef.current?.update({
+      ...sliderOptions,
+    })
+  );
+
   return (
     <>
       <Head>
         <title>Plam | Проект {query.id} </title>
       </Head>
       <section className={styles.single_project_page}>
+        <Modal
+          imgs={carouselItemsUrl}
+          show={showModal}
+          selectedImg={selectedImg}
+          onClose={handleCloseModal}
+        />
         <div className={`container ${styles.content_wrapper}`}>
           <h1 className={styles.page__heading}>Маленькая квартира для сдачи в аренду</h1>
           <div className={styles.carousel}>
             {loaded && instanceRef.current && (
-              <>
-                <FontAwesomeIcon
-                  className={`${styles.arrow} ${styles.arrow_left}`}
-                  icon={faAngleLeft}
-                  onClick={() => instanceRef.current?.prev()}
-                />
-              </>
+              <button
+                className={`${styles.arrow} ${styles.arrow_left}`}
+                onClick={() => instanceRef.current?.prev()}
+              />
             )}
             <div ref={sliderRef} className="keen-slider">
               {carouselItemsUrl.map((url, i) => (
-                <img
+                <Image
+                  width="0"
+                  height="0"
+                  sizes="100%"
                   src={url}
                   className={`keen-slider__slide ${styles.carousel_item}`}
                   style={{ maxWidth: 'fit-content', minWidth: 'fit-content' }}
                   alt={'test image'}
                   key={i}
+                  onClick={() => handleOpenModal(i)}
                 />
               ))}
             </div>
             {loaded && instanceRef.current && (
-              <>
-                <FontAwesomeIcon
-                  className={`${styles.arrow} ${styles.arrow_right}`}
-                  icon={faAngleRight}
-                  onClick={() => instanceRef.current?.next()}
-                />
-              </>
+              <button
+                className={`${styles.arrow} ${styles.arrow_right}`}
+                onClick={() => instanceRef.current?.next()}
+              />
             )}
           </div>
           <div className={styles.project_info}>
