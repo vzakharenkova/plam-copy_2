@@ -1,17 +1,18 @@
-import { KeenSliderOptions, KeenSliderHooks } from 'keen-slider';
+import { KeenSliderOptions } from 'keen-slider';
+import React from 'react';
+
 import Slider from './Slider';
 
 interface Props {
   show: boolean;
-  imgs: string[];
+  images: string[];
   selectedImg: number;
   // eslint-disable-next-line no-unused-vars
-  onClose: (_e: Event) => void;
+  onClose: (_e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-function Modal({ show, imgs, selectedImg, onClose }: Props) {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const sliderOptions: KeenSliderOptions<{}, {}, KeenSliderHooks> = {
+function Modal({ show, images, selectedImg, onClose }: Props) {
+  const sliderOptions: KeenSliderOptions<unknown, unknown> = {
     initial: selectedImg,
     renderMode: 'performance',
     loop: true,
@@ -51,7 +52,7 @@ function Modal({ show, imgs, selectedImg, onClose }: Props) {
           position: 'relative',
         }}
       >
-        <Slider imgs={imgs} withModal={false} sliderOptions={sliderOptions} />
+        <Slider imgs={images} withModal={false} sliderOptions={sliderOptions} />
       </div>
     </div>
   );

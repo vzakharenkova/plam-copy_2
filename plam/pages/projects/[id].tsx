@@ -2,15 +2,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
-import {
-  KeenSliderHooks,
-  KeenSliderInstance,
-  KeenSliderOptions,
-  useKeenSlider,
-} from 'keen-slider/react';
+import { KeenSliderInstance, KeenSliderOptions, useKeenSlider } from 'keen-slider/react';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
 import 'keen-slider/keen-slider.min.css';
@@ -23,12 +18,12 @@ export default function Projects() {
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   // eslint-disable-next-line @typescript-eslint/ban-types
-  const sliderOptions: KeenSliderOptions<{}, {}, KeenSliderHooks> = {
+  const sliderOptions: KeenSliderOptions = {
     initial: 0,
     renderMode: 'performance',
     loop: true,
     // eslint-disable-next-line @typescript-eslint/ban-types
-    slideChanged(slider: KeenSliderInstance<{}, {}, KeenSliderHooks>) {
+    slideChanged(slider: KeenSliderInstance) {
       setCurrentSlide(slider.track.details.rel);
     },
     created() {
@@ -59,7 +54,7 @@ export default function Projects() {
     document.body.style.overflowY = 'hidden';
   };
 
-  const handleCloseModal = (e: Event) => {
+  const handleCloseModal = (e: React.MouseEvent) => {
     e.stopPropagation();
 
     setShowModal(false);
@@ -79,7 +74,7 @@ export default function Projects() {
       </Head>
       <section className={styles.single_project_page}>
         <Modal
-          imgs={carouselItemsUrl}
+          images={carouselItemsUrl}
           show={showModal}
           selectedImg={selectedImg}
           onClose={handleCloseModal}
