@@ -1,10 +1,11 @@
 @import 'styles/variables';
 
 .startscreen {
-  background-color: $light-grey;
-  height: 850px;
-  display: flex;
   align-items: center;
+  display: flex;
+  padding-top: 200px;
+  padding-bottom: 180px;
+  background-color: $light-grey;
 
   .content {
     &_wrapper {
@@ -37,8 +38,53 @@
 }
 
 .projects {
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 100px;
+  background-color: $light-grey;
+
+  &_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+  }
+
+  &__column {
+
+    &_left {
+
+    }
+
+    &_right {
+
+    }
+  }
+}
+
+.project {
+  margin-bottom: 40px;
+
+  &_info {
+
+  }
+
+  &_img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  &_title {
+    margin-bottom: 30px;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-weight: 300;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+  }
+
+  &_description {
+    font-family: var(--font-inter);
+    font-weight: 300;
+    line-height: 23px;
+  }
 }
