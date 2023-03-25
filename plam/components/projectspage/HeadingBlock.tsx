@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import styles from '@/styles/pages/ProjectsPage.module.scss';
-import scheme from '@/public/projectspage/project-scheme.svg';
+import scheme from '@/public/projectspage/project-scheme.gif';
 
 function HeadingBlock() {
   return (
@@ -16,7 +16,12 @@ function HeadingBlock() {
             довольными результатом.
           </p>
         </div>
-        <Image src={scheme} alt="scheme img"></Image>
+        <Image
+          src={scheme}
+          height={479}
+          className={styles.content_img}
+          alt="scheme img"
+        ></Image>
       </div>
     </section>
   );
