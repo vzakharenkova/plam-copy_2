@@ -17,12 +17,14 @@ export default function Projects() {
 
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/ban-types
+  const animation = { duration: 500, easing: (t: number) => t };
   const sliderOptions: KeenSliderOptions = {
     initial: 0,
+    mode: 'snap',
+    drag: false,
     renderMode: 'performance',
     loop: true,
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    defaultAnimation: animation,
     slideChanged(slider: KeenSliderInstance) {
       setCurrentSlide(slider.track.details.rel);
     },
@@ -51,6 +53,7 @@ export default function Projects() {
   const handleOpenModal = (index: number) => {
     setShowModal(true);
     setSelectedImg(index);
+
     document.body.style.overflowY = 'hidden';
   };
 
@@ -61,11 +64,11 @@ export default function Projects() {
     document.body.style.overflowY = 'auto';
   };
 
-  useEffect(() =>
+  useEffect(() => {
     instanceRef.current?.update({
       ...sliderOptions,
-    })
-  );
+    });
+  });
 
   return (
     <>

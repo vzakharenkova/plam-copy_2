@@ -8,19 +8,19 @@ import styles from '@/styles/pages/SingleProjectPage.module.scss';
 
 interface Props {
   imgs: string[];
-  withModal: boolean;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  sliderOptions: KeenSliderOptions<{}, {}, KeenSliderHooks>;
+  sliderOptions: KeenSliderOptions<object, object, KeenSliderHooks>;
 }
 
 function Slider({ imgs, sliderOptions }: Props) {
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const animation = { duration: 300, easing: (t: number) => t };
 
-  const currentSliderOptions = {
+  const currentSliderOptions: KeenSliderOptions<unknown, unknown> = {
     ...sliderOptions,
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    slideChanged(slider: KeenSliderInstance<{}, {}, KeenSliderHooks>) {
+    defaultAnimation: animation,
+
+    slideChanged(slider: KeenSliderInstance<object, object, KeenSliderHooks>) {
       setCurrentSlide(slider.track.details.rel);
     },
     created() {
@@ -49,16 +49,16 @@ function Slider({ imgs, sliderOptions }: Props) {
       )}
       <div ref={sliderRef} className="keen-slider">
         {imgs.map((url, i) => (
-          <Image
-            width="0"
-            height="0"
-            sizes="100%"
-            src={url}
-            className={`keen-slider__slide ${styles.carousel_item}`}
-            style={{ maxWidth: 'fit-content', minWidth: 'fit-content' }}
-            alt={'test image'}
-            key={i}
-          />
+          <div className={`${styles.carousel_item_wrapper} keen-slider__slide`} key={i}>
+            <Image
+              width="0"
+              height="0"
+              sizes="initial"
+              src={url}
+              className={styles.carousel_item}
+              alt={'test image'}
+            />
+          </div>
         ))}
       </div>
       {loaded && instanceRef.current && (

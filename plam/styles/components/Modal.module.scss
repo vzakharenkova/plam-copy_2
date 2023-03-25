@@ -1,0 +1,23 @@
+.modal {
+  z-index: 1001;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  backdrop-filter: blur(20px);
+
+  &__content_wrapper {
+    height: 85vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+}

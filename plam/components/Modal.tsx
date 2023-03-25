@@ -1,14 +1,15 @@
 import { KeenSliderOptions } from 'keen-slider';
 import React from 'react';
 
+import styles from '@/styles/components/Modal.module.scss';
+
 import Slider from './Slider';
 
 interface Props {
   show: boolean;
   images: string[];
   selectedImg: number;
-  // eslint-disable-next-line no-unused-vars
-  onClose: (_e: React.MouseEvent<HTMLDivElement>) => void;
+  onClose: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 function Modal({ show, images, selectedImg, onClose }: Props) {
@@ -19,7 +20,7 @@ function Modal({ show, images, selectedImg, onClose }: Props) {
 
     slides: {
       origin: 'center',
-      perView: 'auto',
+      perView: 1,
       spacing: 8,
     },
   };
@@ -28,31 +29,9 @@ function Modal({ show, images, selectedImg, onClose }: Props) {
     return null;
   }
   return (
-    <div
-      style={{
-        position: 'fixed',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 200,
-        height: '100vh',
-        width: '100vw',
-        backdropFilter: 'blur(20px)',
-        bottom: '0',
-        right: '0',
-      }}
-      onClick={(e) => onClose(e)}
-    >
-      <div
-        style={{
-          height: '85vh',
-          width: '85vw',
-          display: 'flex',
-          justifyContent: 'center',
-          position: 'relative',
-        }}
-      >
-        <Slider imgs={images} withModal={false} sliderOptions={sliderOptions} />
+    <div className={styles.modal} onClick={(e) => onClose(e)}>
+      <div className={styles.modal__content_wrapper}>
+        <Slider imgs={images} sliderOptions={sliderOptions} />
       </div>
     </div>
   );
