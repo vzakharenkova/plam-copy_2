@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { KeenSliderOptions, KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
@@ -14,7 +14,7 @@ interface Props {
 function Slider({ imgs, sliderOptions }: Props) {
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const animation = { duration: 300, easing: (t: number) => t };
+  const animation = { duration: 500, easing: (t: number) => t };
 
   const currentSliderOptions: KeenSliderOptions<unknown, unknown> = {
     ...sliderOptions,
@@ -29,12 +29,6 @@ function Slider({ imgs, sliderOptions }: Props) {
   };
 
   const [sliderRef, instanceRef] = useKeenSlider(currentSliderOptions);
-
-  useEffect(() =>
-    instanceRef.current?.update({
-      ...currentSliderOptions,
-    })
-  );
 
   return (
     <>

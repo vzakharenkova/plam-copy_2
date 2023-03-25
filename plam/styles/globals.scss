@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 * {
   box-sizing: border-box;
@@ -90,4 +90,8 @@ img {
     color: $white;
     border-color: $orange;
   }
+}
+
+html:has(section.overflowY_hidden) {
+  overflow-y: hidden;
 }

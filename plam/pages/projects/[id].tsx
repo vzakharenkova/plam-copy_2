@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { KeenSliderInstance, KeenSliderOptions, useKeenSlider } from 'keen-slider/react';
@@ -11,6 +11,7 @@ import styles from '@/styles/pages/SingleProjectPage.module.scss';
 import 'keen-slider/keen-slider.min.css';
 
 import Modal from '../../components/Modal';
+// import Swiper from '../../components/Swiper';
 
 export default function Projects() {
   const { query } = useRouter();
@@ -18,10 +19,10 @@ export default function Projects() {
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const animation = { duration: 500, easing: (t: number) => t };
+
   const sliderOptions: KeenSliderOptions = {
-    initial: 0,
-    mode: 'snap',
-    drag: false,
+    initial: 1,
+
     renderMode: 'performance',
     loop: true,
     defaultAnimation: animation,
@@ -54,7 +55,7 @@ export default function Projects() {
     setShowModal(true);
     setSelectedImg(index);
 
-    document.body.style.overflowY = 'hidden';
+    // document. = 'hidden !important';
   };
 
   const handleCloseModal = (e: React.MouseEvent) => {
@@ -64,18 +65,22 @@ export default function Projects() {
     document.body.style.overflowY = 'auto';
   };
 
-  useEffect(() => {
-    instanceRef.current?.update({
-      ...sliderOptions,
-    });
-  });
+  // это то, что по идее должно решать проблему при первой загрузке
+
+  //   useEffect(() => {
+  //     instanceRef.current?.update({
+  //       ...sliderOptions,
+  //     });
+  //   }, []);
 
   return (
     <>
       <Head>
         <title>Plam | Проект {query.id} </title>
       </Head>
-      <section className={styles.single_project_page}>
+      <section
+        className={`${styles.single_project_page} ${showModal ? 'overflowY_hidden' : ''}`}
+      >
         <Modal
           images={carouselItemsUrl}
           show={showModal}
@@ -85,6 +90,7 @@ export default function Projects() {
         <div className={`container ${styles.content_wrapper}`}>
           <h1 className={styles.page__heading}>Маленькая квартира для сдачи в аренду</h1>
           <div className={styles.carousel}>
+            {/* <Swiper /> */}
             {loaded && instanceRef.current && (
               <button
                 className={`${styles.arrow} ${styles.arrow_left}`}
