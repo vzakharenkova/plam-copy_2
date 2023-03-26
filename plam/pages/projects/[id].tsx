@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
-import { KeenSliderInstance, KeenSliderOptions, useKeenSlider } from 'keen-slider/react';
+import { KeenSliderInstance, useKeenSlider } from 'keen-slider/react';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
 import 'keen-slider/keen-slider.min.css';
@@ -17,35 +17,8 @@ export default function Projects({ imgs }: { imgs: string[] }) {
   const [options, setOptions] = useState({});
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const animation = { duration: 500, easing: (t: number) => t };
-
-  const sliderOptions: KeenSliderOptions = {
-    initial: 1,
-    renderMode: 'precision',
-    loop: true,
-    defaultAnimation: animation,
-    slideChanged(slider: KeenSliderInstance) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-    slides: {
-      origin: 'center',
-      perView: 'auto',
-      spacing: 8,
-    },
-  };
 
   const [sliderRef, instanceRef] = useKeenSlider(options);
-  const [data, setData] = useState<string[]>([]);
-  const carouselItemsUrl = [
-    'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/d/d7/VOLKSWAGEN_TIGUAN_X_EXTERIOR%281%29.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/c/c0/VOLKSWAGEN_TIGUAN_X_ALLOY_WHEEL.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/b/ba/Volkswagen-VW-1200-084554.jpg',
-  ];
 
   const [showModal, setShowModal] = useState(false);
   const [selectedImg, setSelectedImg] = useState(0);
@@ -62,14 +35,29 @@ export default function Projects({ imgs }: { imgs: string[] }) {
   };
 
   useEffect(() => {
-    setOptions(sliderOptions);
-  }, [sliderOptions]);
+    setOptions({
+      initial: 1,
+      renderMode: 'precision',
+      loop: true,
+      defaultAnimation: { duration: 500, easing: (t: number) => t },
+      slideChanged(slider: KeenSliderInstance) {
+        setCurrentSlide(slider.track.details.rel);
+      },
+      created() {
+        setLoaded(true);
+      },
+      slides: {
+        origin: 'center',
+        perView: 'auto',
+        spacing: 8,
+      },
+    });
+  }, []);
 
   useEffect(() => {
     instanceRef.current?.update();
     setLoaded(true);
-    setData(carouselItemsUrl);
-  }, [options, carouselItemsUrl]);
+  }, [options, instanceRef]);
 
   return (
     <>
@@ -80,7 +68,7 @@ export default function Projects({ imgs }: { imgs: string[] }) {
         className={`${styles.single_project_page} ${showModal ? 'overflowY_hidden' : ''}`}
       >
         <Modal
-          images={carouselItemsUrl}
+          images={imgs}
           show={showModal}
           selectedImg={selectedImg}
           onClose={handleCloseModal}
@@ -198,13 +186,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const carouselItemsUrl = [
-    'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/d/d7/VOLKSWAGEN_TIGUAN_X_EXTERIOR%281%29.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/c/c0/VOLKSWAGEN_TIGUAN_X_ALLOY_WHEEL.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/b/ba/Volkswagen-VW-1200-084554.jpg',
-  ];
   return {
     props: {
       imgs: [
