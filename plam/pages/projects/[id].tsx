@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { KeenSliderInstance, KeenSliderOptions, useKeenSlider } from 'keen-slider/react';
@@ -11,19 +11,17 @@ import styles from '@/styles/pages/SingleProjectPage.module.scss';
 import 'keen-slider/keen-slider.min.css';
 
 import Modal from '../../components/Modal';
-// import Swiper from '../../components/Swiper';
 
 export default function Projects() {
   const { query } = useRouter();
-
+  const [options, setOptions] = useState({});
   const [, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const animation = { duration: 500, easing: (t: number) => t };
 
   const sliderOptions: KeenSliderOptions = {
     initial: 1,
-
-    renderMode: 'performance',
+    renderMode: 'precision',
     loop: true,
     defaultAnimation: animation,
     slideChanged(slider: KeenSliderInstance) {
@@ -39,7 +37,8 @@ export default function Projects() {
     },
   };
 
-  const [sliderRef, instanceRef] = useKeenSlider(sliderOptions);
+  const [sliderRef, instanceRef] = useKeenSlider(options);
+  const [data, setData] = useState<string[]>([]);
   const carouselItemsUrl = [
     'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
     'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
@@ -54,24 +53,22 @@ export default function Projects() {
   const handleOpenModal = (index: number) => {
     setShowModal(true);
     setSelectedImg(index);
-
-    // document. = 'hidden !important';
   };
 
   const handleCloseModal = (e: React.MouseEvent) => {
     e.stopPropagation();
 
     setShowModal(false);
-    document.body.style.overflowY = 'auto';
   };
 
-  // это то, что по идее должно решать проблему при первой загрузке
+  useEffect(() => {
+    setOptions(sliderOptions);
+  }, [sliderOptions]);
 
-  //   useEffect(() => {
-  //     instanceRef.current?.update({
-  //       ...sliderOptions,
-  //     });
-  //   }, []);
+  useEffect(() => {
+    setLoaded(true);
+    setData(carouselItemsUrl);
+  }, [options, carouselItemsUrl]);
 
   return (
     <>
@@ -90,15 +87,15 @@ export default function Projects() {
         <div className={`container ${styles.content_wrapper}`}>
           <h1 className={styles.page__heading}>Маленькая квартира для сдачи в аренду</h1>
           <div className={styles.carousel}>
-            {/* <Swiper /> */}
             {loaded && instanceRef.current && (
               <button
                 className={`${styles.arrow} ${styles.arrow_left}`}
                 onClick={() => instanceRef.current?.prev()}
               />
             )}
+
             <div ref={sliderRef} className="keen-slider">
-              {carouselItemsUrl.map((url, i) => (
+              {data.map((url, i) => (
                 <Image
                   width="0"
                   height="0"
@@ -112,6 +109,7 @@ export default function Projects() {
                 />
               ))}
             </div>
+
             {loaded && instanceRef.current && (
               <button
                 className={`${styles.arrow} ${styles.arrow_right}`}
