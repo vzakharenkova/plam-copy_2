@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@builder.io/react": "^2.0.16",
     "@img-comparison-slider/react": "^8.0.0",
     "aos": "^2.3.4",
     "img-comparison-slider": "^8.0.0",

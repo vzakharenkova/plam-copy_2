@@ -3,9 +3,11 @@ import Link from 'next/link';
 
 import styles from '@/styles/pages/HomePage.module.scss';
 
-import img from '@/public/homepage/about.png';
+interface AboutProps {
+  img: string;
+}
 
-export default function AboutBlock() {
+export default function AboutBlock({ img }: AboutProps) {
   return (
     <section className={styles.about}>
       <div
@@ -25,6 +27,8 @@ export default function AboutBlock() {
         <div className={styles.about__content}>
           <Image
             src={img}
+            width={500}
+            height={600}
             alt="image"
             className={styles.about__img}
             data-aos="fade-right"

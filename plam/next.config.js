@@ -5,7 +5,7 @@ const nextConfig = {
     additionalData: `@import "styles/variables.scss";`,
   },
   images: {
-    domains: ['upload.wikimedia.org'],
+    domains: ['upload.wikimedia.org', 'cdn.builder.io'],
   },
 };
 
