@@ -66,6 +66,7 @@ export default function Projects() {
   }, [sliderOptions]);
 
   useEffect(() => {
+    instanceRef.current?.update();
     setLoaded(true);
     setData(carouselItemsUrl);
   }, [options, carouselItemsUrl]);
