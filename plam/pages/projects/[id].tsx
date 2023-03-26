@@ -12,7 +12,7 @@ import 'keen-slider/keen-slider.min.css';
 
 import Modal from '../../components/Modal';
 
-export default function Projects() {
+export default function Projects({ imgs }: { imgs: string[] }) {
   const { query } = useRouter();
   const [options, setOptions] = useState({});
   const [, setCurrentSlide] = useState(0);
@@ -96,7 +96,7 @@ export default function Projects() {
             )}
 
             <div ref={sliderRef} className="keen-slider">
-              {data.map((url, i) => (
+              {imgs.map((url, i) => (
                 <Image
                   width="0"
                   height="0"
@@ -188,4 +188,32 @@ export default function Projects() {
       </section>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { id: 'project_1' } }],
+    fallback: false, // can also be true or 'blocking'
+  };
+}
+
+export async function getStaticProps() {
+  const carouselItemsUrl = [
+    'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/d/d7/VOLKSWAGEN_TIGUAN_X_EXTERIOR%281%29.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/c/c0/VOLKSWAGEN_TIGUAN_X_ALLOY_WHEEL.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/b/ba/Volkswagen-VW-1200-084554.jpg',
+  ];
+  return {
+    props: {
+      imgs: [
+        'https://upload.wikimedia.org/wikipedia/commons/c/c6/Volkswagen_Beetle_convertible_rear.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/8/84/VW_T-Roc_R%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0307%29.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/d/d7/VOLKSWAGEN_TIGUAN_X_EXTERIOR%281%29.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/c/c0/VOLKSWAGEN_TIGUAN_X_ALLOY_WHEEL.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/b/ba/Volkswagen-VW-1200-084554.jpg',
+      ],
+    }, // will be passed to the page component as props
+  };
 }
