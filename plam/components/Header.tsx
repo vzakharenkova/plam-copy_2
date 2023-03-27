@@ -55,7 +55,7 @@ export default function Header() {
                     <Link
                       key={props.id}
                       href={props.path}
-                      className={`${pathname === path ? styles.active : ''} $ ${
+                      className={`${pathname === props.path ? styles.active : ''} $ ${
                         styles.sub_link
                       }`}
                     >
