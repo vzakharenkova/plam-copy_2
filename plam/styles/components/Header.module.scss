@@ -1,4 +1,4 @@
-@import "styles/variables";
+@import 'styles/variables';
 
 .header {
   position: fixed;
@@ -23,8 +23,50 @@
 }
 
 .nav {
+  height: 100%;
   display: flex;
+  align-items: center;
   gap: 2vw;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  .sub_nav {
+    padding: 10px;
+    display: none;
+    position: absolute;
+    top: 17px;
+    background: $orange;
+  }
+
+  .has__sub_nav {
+    position: relative;
+  }
+
+  .has__sub_nav:hover {
+    .sub_nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  .link_wrapper {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sub_link {
+    align-self: flex-start;
+    font-size: 0.775rem;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      text-shadow: $text-shadow;
+    }
+  }
 
   .link {
     height: fit-content;
