@@ -1,3 +1,12 @@
+import Head from 'next/head';
+
 export default function AuthorSupport() {
-  return <div>author-support</div>;
+  return (
+    <>
+      <Head>
+        <title>Plam | Авторский надзор</title>
+      </Head>
+      <div>Авторский надзор</div>
+    </>
+  );
 }
