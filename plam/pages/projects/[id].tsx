@@ -2,10 +2,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
-import { KeenSliderInstance, useKeenSlider } from 'keen-slider/react';
+import { KeenSliderOptions, useKeenSlider } from 'keen-slider/react';
 
 import styles from '@/styles/pages/SingleProjectPage.module.scss';
 import 'keen-slider/keen-slider.min.css';
@@ -14,11 +14,19 @@ import Modal from '../../components/Modal';
 
 export default function Projects({ imgs }: { imgs: string[] }) {
   const { query } = useRouter();
-  const [options, setOptions] = useState({});
-  const [, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
 
-  const [sliderRef, instanceRef] = useKeenSlider(options);
+  const sliderOptions: KeenSliderOptions = {
+    loop: true,
+    mode: 'free',
+    drag: false,
+    slides: {
+      origin: 'center',
+      perView: 'auto',
+      spacing: 8,
+    },
+  };
+
+  const [sliderRef, instanceRef] = useKeenSlider(sliderOptions);
 
   const [showModal, setShowModal] = useState(false);
   const [selectedImg, setSelectedImg] = useState(0);
@@ -30,34 +38,8 @@ export default function Projects({ imgs }: { imgs: string[] }) {
 
   const handleCloseModal = (e: React.MouseEvent) => {
     e.stopPropagation();
-
     setShowModal(false);
   };
-
-  useEffect(() => {
-    setOptions({
-      initial: 1,
-      renderMode: 'precision',
-      loop: true,
-      defaultAnimation: { duration: 500, easing: (t: number) => t },
-      slideChanged(slider: KeenSliderInstance) {
-        setCurrentSlide(slider.track.details.rel);
-      },
-      created() {
-        setLoaded(true);
-      },
-      slides: {
-        origin: 'center',
-        perView: 'auto',
-        spacing: 8,
-      },
-    });
-  }, []);
-
-  useEffect(() => {
-    instanceRef.current?.update();
-    setLoaded(true);
-  }, [options, instanceRef]);
 
   return (
     <>
@@ -76,12 +58,12 @@ export default function Projects({ imgs }: { imgs: string[] }) {
         <div className={`container ${styles.content_wrapper}`}>
           <h1 className={styles.page__heading}>Маленькая квартира для сдачи в аренду</h1>
           <div className={styles.carousel}>
-            {loaded && instanceRef.current && (
-              <button
-                className={`${styles.arrow} ${styles.arrow_left}`}
-                onClick={() => instanceRef.current?.prev()}
-              />
-            )}
+            <button
+              className={`${styles.arrow} ${styles.arrow_left}`}
+              onClick={() => {
+                instanceRef.current?.prev();
+              }}
+            />
 
             <div ref={sliderRef} className="keen-slider">
               {imgs.map((url, i) => (
@@ -91,20 +73,21 @@ export default function Projects({ imgs }: { imgs: string[] }) {
                   sizes="100%"
                   src={url}
                   className={`keen-slider__slide ${styles.carousel_item}`}
-                  style={{ maxWidth: 'fit-content', minWidth: 'fit-content' }}
+                  priority={true}
                   alt={'test image'}
                   key={i}
                   onClick={() => handleOpenModal(i)}
+                  onLoadingComplete={() => instanceRef.current?.update()}
                 />
               ))}
             </div>
 
-            {loaded && instanceRef.current && (
-              <button
-                className={`${styles.arrow} ${styles.arrow_right}`}
-                onClick={() => instanceRef.current?.next()}
-              />
-            )}
+            <button
+              className={`${styles.arrow} ${styles.arrow_right}`}
+              onClick={() => {
+                instanceRef.current?.next();
+              }}
+            />
           </div>
           <div className={styles.project_info}>
             <div className={styles.project_text}>
