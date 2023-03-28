@@ -77,7 +77,9 @@ export default function Projects({ imgs }: { imgs: string[] }) {
                   alt={'test image'}
                   key={i}
                   onClick={() => handleOpenModal(i)}
-                  onLoadingComplete={() => instanceRef.current?.update()}
+                  onLoadingComplete={() => {
+                    if (!i) instanceRef.current?.update();
+                  }}
                 />
               ))}
             </div>
