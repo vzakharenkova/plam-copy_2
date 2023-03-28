@@ -25,7 +25,11 @@ interface HomeProps {
   data: {
     ticker: string;
     tickerColor: string;
-    aboutImg: string;
+    firstSectionTitle: string;
+    firstSectionImg: string;
+    firstSectionText: string;
+    projectImg1: string;
+    projectImg2: string;
   };
 }
 
@@ -39,8 +43,12 @@ export default function Home({ data }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Startscreen tickerText={data.ticker} tickerColor={data.tickerColor} />
-      <AboutBlock img={data.aboutImg} />
-      <ProjectsBlock />
+      <AboutBlock
+        title={data.firstSectionTitle}
+        img={data.firstSectionImg}
+        text={data.firstSectionText}
+      />
+      <ProjectsBlock img1={data.projectImg1} img2={data.projectImg2} />
       <ContactsBlock />
     </>
   );

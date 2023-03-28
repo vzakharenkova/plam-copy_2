@@ -4,10 +4,12 @@ import Link from 'next/link';
 import styles from '@/styles/pages/HomePage.module.scss';
 
 interface AboutProps {
+  title: string;
   img: string;
+  text: string;
 }
 
-export default function AboutBlock({ img }: AboutProps) {
+export default function AboutBlock({ title, img, text }: AboutProps) {
   return (
     <section className={styles.about}>
       <div
@@ -20,7 +22,7 @@ export default function AboutBlock({ img }: AboutProps) {
           data-aos="fade-up"
           data-aos-anchor-placement="bottom-bottom"
         >
-          {'о нас'.toUpperCase()}
+          {title.toUpperCase()}
         </h2>
       </div>
       <div className={`container ${styles.about__wrapper}`}>
@@ -35,26 +37,10 @@ export default function AboutBlock({ img }: AboutProps) {
             data-aos-easing="ease-in-sine"
           />
           <div className={styles.about__info} data-aos="fade-up">
-            <div className={styles.about__text_block}>
-              <p className={`${styles.text_bold} ${styles.text}`}>
-                Мы команда, увлеченных свои делом, архитекторов и дизайнеров.
-              </p>
-              <p className={styles.text}>
-                В основе наших проектов - функциональная планировка, законченная
-                композиция и разумный бюджет для воплощения проекта.
-              </p>
-              <p className={styles.text}>
-                Наша цель: создавать индивидуальные и комфортные интерьеры.
-              </p>
-              <p className={styles.text}>
-                Мы не используем штампы и не преобразуем готовые решения. Каждый проект
-                для нас - чистый лист. Поэтому среди работ Вы не найдете двух одинаковых
-                интерьеров. Наша работа над проектами строится на диалоге и комфортном
-                сотрудничестве. Мы искренне любим своё дело, всегда находим лучшие решения
-                и уделяем большое внимание деталям и срокам. Именно так мы делаем клиентов
-                счастливыми и довольными результатом.
-              </p>
-            </div>
+            <div
+              className={styles.about__text_block}
+              dangerouslySetInnerHTML={{ __html: text }}
+            ></div>
             <div className={styles.about__btn_wrapper} data-aos="zoom-in-left">
               <Link href="/about" className={'button'}>
                 {'узнать больше'.toUpperCase()}

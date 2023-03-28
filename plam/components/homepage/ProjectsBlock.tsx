@@ -3,10 +3,12 @@ import Image from 'next/image';
 
 import styles from '@/styles/pages/HomePage.module.scss';
 
-import img1 from '@/public/homepage/project1.png';
-import img2 from '@/public/homepage/project2.png';
+interface ProjectBlockProps {
+  img1: string;
+  img2: string;
+}
 
-export default function ProjectsBlock() {
+export default function ProjectsBlock({ img1, img2 }: ProjectBlockProps) {
   return (
     <section className={styles.projects} data-aos="fade" data-aos-duration="1000">
       <div className={`container ${styles.projects__container}`}>
@@ -18,6 +20,9 @@ export default function ProjectsBlock() {
             СМОТРЕТЬ ВСЕ
           </Link>
           <Image
+            width={0}
+            height={0}
+            sizes="100%"
             src={img1}
             alt={'фрагмент дизайн-проекта (корридор)'}
             className={`${styles.img} ${styles.img_1}`}
@@ -25,6 +30,9 @@ export default function ProjectsBlock() {
             data-aos-easing="ease-in-sine"
           />
           <Image
+            width={0}
+            height={0}
+            sizes="100%"
             src={img2}
             alt={'фрагмент дизайн-проекта (кухня)'}
             className={`${styles.img} ${styles.img_2}`}
